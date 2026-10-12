@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Console and model — Traceline</title>
+<meta name="description" content="AI-based indoor positioning that stays accurate with few anchors, noisy signals and obstructed paths.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://db.onlinewebfonts.com/c/8cb707a9b8a73f8a7403336b861c3074?family=BubbledotICG-FinePos" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="console.css"><link rel="icon" type="image/png" href="assets/favicon.png"><meta name="theme-color" content="#000000"></head>
+<body>
+<div class="bg"><video class="bg-video" autoplay muted loop playsinline><source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_105406_16f4600d-7a92-4292-b96e-b19156c7830a.mp4" type="video/mp4"></video></div>
+<div id="scrim"></div><div id="veil" class="go"><img src="assets/logo.png" alt="" class="vlogo"></div>
+<header class="header"><a class="brand" href="index.html" aria-label="Traceline home"><span class="logo"><img src="assets/logo.png" alt="" width="52" height="52"></span><span class="brand-name">trace<i>line</i></span></a>
+<nav class="nav-pill" aria-label="Primary"><a class="" href="index.html">Home</a><a class="" href="business.html">Business</a><a class="" href="pricing.html">Plans</a><a class="" href="security.html">Security</a><a class=" active" href="console.html">Console</a><a class="nc" href="pricing.html#contact">Contact</a></nav>
+<button class="burger" type="button" aria-expanded="false" aria-controls="mmenu" aria-label="Open menu"><span></span><span></span><span></span></button></header>
+<div class="overlay" hidden></div>
+<div class="mmenu" id="mmenu" hidden><a class="ml" href="index.html">Home</a><a class="ml" href="business.html">Business</a><a class="ml" href="pricing.html">Plans</a><a class="ml" href="security.html">Security</a><a class="ml active" href="console.html">Console</a><a class="sign" href="pricing.html#contact">Contact</a></div>
+<div class="page is-sub"><div class="hero">
+<h1 class="headline"><span>The Traceline</span><span>Console</span></h1>
+<p class="subhead anim" style="--d:.28s">The workspace you receive after onboarding: live tracking, placement planning, error learning, stress testing and privacy controls in one desktop application.</p>
+<a class="cta anim pulse" style="--d:.4s" href="#demo">Open the console</a></div></div>
+<main class="sheet"><div class="wrap cw">
+<section id="demo" style="padding-top:30px"><span class="tag">Interactive preview</span><h2>Everything runs inside the laptop below.</h2>
+<p class="rv">Pick any item in the sidebar, switch layers on the map, drag the sliders and run the tests. The data is simulated for demonstration; a pilot replaces it with your building.</p>
+<div class="macw rv"><div class="mac"><div class="lid"><div class="screen" id="screen"><div class="os" id="os"></div></div></div><div class="hinge"></div><div class="base"></div></div></div><span class="swipe">Swipe sideways to explore the console</span></section>
+
+<section><span class="tag">What you receive</span><h2>Ten parts, one console.</h2>
+<ol class="ledger rv" id="ledger">
+<li data-go="live"><span>Live tracking map with uncertainty circles</span><i></i><em>Live map</em></li>
+<li data-go="live"><span>Obstacle-aware recovery and anchor trust rays</span><i></i><em>Live map</em></li>
+<li data-go="live"><span>Crowd-aware tracking zones</span><i></i><em>Live map · Crowd</em></li>
+<li data-go="live"><span>Predictive positioning through signal gaps</span><i></i><em>Live map · Prediction</em></li>
+<li data-go="live"><span>Emergency tracking mode with priority assets</span><i></i><em>Toolbar</em></li>
+<li data-go="place"><span>AI anchor placement optimizer</span><i></i><em>Placement</em></li>
+<li data-go="emap"><span>Self-learning error map, validated on separate paths</span><i></i><em>Error map</em></li>
+<li data-go="stress"><span>Automatic stress testing</span><i></i><em>Stress test</em></li>
+<li data-go="dev"><span>Anchor and asset health</span><i></i><em>Devices</em></li>
+<li data-go="priv"><span>Retention, roles, tracking-off zones and audit trail</span><i></i><em>Privacy &amp; access</em></li></ol></section>
+
+<section><span class="tag">How the model works</span><h2>From raw readings to a position you can trust.</h2>
+<div class="flow rv"><div><b>Ingest</b><small>range · RSSI · anchor map</small></div><u></u><div><b>Qualify</b><small>score every reading</small></div><u></u><div><b>Estimate</b><small>learned model + filter</small></div><u></u><div><b>Report</b><small>position · uncertainty · reason</small></div></div>
+<div class="stage rv"><h3>1 Ingest</h3><div><p>Each anchor that hears a tag reports a timestamped range (ultra-wideband time of flight) or signal strength (Bluetooth RSSI). With the surveyed anchor coordinates and the floor plan, the system knows which wall sits between every anchor and every point.</p><aside>Works through measurement adapters, so anchor vendors can be mixed.</aside></div></div>
+<div class="stage rv"><h3>2 Qualify</h3><div><p>A radio path that passes through a wall reads longer than the real distance. Each reading therefore gets a trust score from three checks: how far it disagrees with neighbouring anchors, whether the straight path crosses a wall on the plan, and whether it fits recent motion. Low-trust readings are down-weighted rather than thrown away, so a sparse site keeps every clue it has.</p><aside>This is why the live map draws solid rays for trusted anchors and dashed rays for down-weighted ones.</aside></div></div>
+<div class="stage rv"><h3>3 Estimate</h3><div><p>A learned model turns the weighted readings into an X–Y position. A temporal filter then blends in motion history, which smooths jitter and lets the track continue when anchors drop out; during a gap the filter predicts forward and the uncertainty grows honestly. Location-specific corrections from the error map are applied last.</p><aside>Model family and filter settings are tuned per site during the pilot.</aside></div></div>
+<div class="stage rv"><h3>4 Report</h3><div><p>Every position leaves with an uncertainty radius, a confidence value, the anchors that influenced it and a plain-language reason. Operators read “2 of 8 anchors blocked, track held by motion history” instead of a bare coordinate.</p><aside>Reports and events can be exported to your own systems.</aside></div></div></section>
+
+<section><span class="tag">What it uses</span><h2>Inputs, model parts and outputs.</h2>
+<div class="tabs rv" id="tabs"><nav><button class="on" data-t="0">Inputs</button><button data-t="1">Model parts</button><button data-t="2">Outputs</button></nav>
+<dl class="tp on"><dt>Range</dt><dd>Ultra-wideband time-of-flight distance from each reachable anchor.</dd><dt>Signal strength</dt><dd>Bluetooth RSSI where UWB is not installed.</dd><dt>Anchor coordinates</dt><dd>Surveyed X–Y positions and anchor identifiers.</dd><dt>Floor plan</dt><dd>Walls and doors, used for line-of-sight checks and placement planning.</dd><dt>Device identifier</dt><dd>A rotating pseudonymous ID, never a name.</dd></dl>
+<dl class="tp"><dt>Reading scorer</dt><dd>Estimates how likely each reading is obstructed or biased.</dd><dt>Position estimator</dt><dd>Learned mapping from trusted readings to X–Y.</dd><dt>Temporal filter</dt><dd>Uses motion history for stability, prediction and recovery.</dd><dt>Uncertainty estimate</dt><dd>Produces the radius and confidence shown with every position.</dd><dt>Error-map corrector</dt><dd>Learns repeat errors by location and checks them on separate trajectories.</dd><dt>Planner and stress tester</dt><dd>Simulate placements and thousands of noise, dropout and obstruction cases.</dd></dl>
+<dl class="tp"><dt>Position</dt><dd>X–Y in metres with zone name.</dd><dt>Uncertainty</dt><dd>Radius around the estimate, plus confidence.</dd><dt>Evidence</dt><dd>Anchors used, anchors down-weighted, and the reason in plain language.</dd><dt>Events</dt><dd>Dropouts, uncertain zones, emergency flags and audit entries.</dd><dt>Reports</dt><dd>Placement comparison, error-map validation and stress-test findings.</dd></dl></div></section>
+
+<section><span class="tag">Where it is necessary</span><h2>Wherever a few metres change the outcome.</h2>
+<div class="two"><ul class="venues rv"><li><b>Hospitals</b> Wheelchairs, pumps and monitors sit in busy corridors behind many walls; finding the right one quickly saves staff minutes, and emergency mode keeps priority assets visible.</li><li><b>Warehouses</b> Metal racking bends signals, so a pallet can appear one aisle away; obstruction scoring and the error map target exactly this.</li><li><b>Campuses and public buildings</b> Large floors with few budgeted anchors need wayfinding and space planning without a dense install.</li><li><b>Malls</b> Crowds change signal quality through the day; crowd-aware zones show where accuracy dips.</li></ul>
+<figure class="rv"><img loading="lazy" src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=900&q=70" alt="Warehouse aisles" onerror="this.parentElement.style.display='none'"><figcaption>Long racked aisles distort signals</figcaption></figure></div></section>
+
+<section><span class="tag">Example output</span><h2>One position report.</h2>
+<pre class="code rv">{
+  "id": "W-014",           "zone": "Main corridor",
+  "x_m": 21.4,             "y_m": 20.1,
+  "uncertainty_m": 1.6,    "confidence": 0.82,
+  "anchors_used": ["A1","A3","A5","A6","A8"],
+  "anchors_downweighted": ["A2","A4"],
+  "reason": "2 of 8 anchors blocked by walls; track held by motion history"
+}</pre></section>
+
+<section><blockquote class="pull rv">Accuracy depends on anchors, noise and obstructions. We report results on hidden test data and confirm them in your building with a surveyed pilot.</blockquote>
+<a class="btn" href="pricing.html#contact">Request a pilot</a><a class="btn alt" href="pricing.html">View plans</a></section>
+</div></main>
+<footer class="foot"><nav><a href="index.html">Home</a><a href="business.html">Business</a><a href="pricing.html">Plans</a><a href="security.html">Security</a><a href="console.html">Console</a><a href="pricing.html#contact">Contact</a></nav><img src="assets/logo.png" alt="Traceline" class="flogo"><div class="wm">trace<i>line</i></div>AI indoor positioning for sparse infrastructure · <a class="inl" href="mailto:nayanthakare4321@gmail.com">nayanthakare4321@gmail.com</a></footer>
+
+<script src="main.js"></script><script src="console.js"></script></body></html>

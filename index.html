@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Indoor positioning for sparse infrastructure — Traceline</title>
+<meta name="description" content="AI-based indoor positioning that stays accurate with few anchors, noisy signals and obstructed paths.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://db.onlinewebfonts.com/c/8cb707a9b8a73f8a7403336b861c3074?family=BubbledotICG-FinePos" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="styles.css"><link rel="icon" type="image/png" href="assets/favicon.png"><meta name="theme-color" content="#000000"></head>
+<body>
+<div class="bg"><video class="bg-video" autoplay muted loop playsinline><source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_105406_16f4600d-7a92-4292-b96e-b19156c7830a.mp4" type="video/mp4"></video></div>
+<div id="scrim"></div><div id="veil" class="go"><img src="assets/logo.png" alt="" class="vlogo"></div>
+
+<header class="header"><a class="brand" href="index.html" aria-label="Traceline home"><span class="logo"><img src="assets/logo.png" alt="" width="52" height="52"></span><span class="brand-name">trace<i>line</i></span></a>
+<nav class="nav-pill" aria-label="Primary"><a class=" active" href="index.html">Home</a><a class="" href="business.html">Business</a><a class="" href="pricing.html">Plans</a><a class="" href="security.html">Security</a><a class="" href="console.html">Console</a><a class="nc" href="pricing.html#contact">Contact</a></nav>
+<button class="burger" type="button" aria-expanded="false" aria-controls="mmenu" aria-label="Open menu"><span></span><span></span><span></span></button></header>
+<div class="overlay" hidden></div>
+<div class="mmenu" id="mmenu" hidden><a class="ml active" href="index.html">Home</a><a class="ml" href="business.html">Business</a><a class="ml" href="pricing.html">Plans</a><a class="ml" href="security.html">Security</a><a class="ml" href="console.html">Console</a><a class="sign" href="pricing.html#contact">Contact</a></div>
+<div class="page">
+<div class="hero">
+<h1 class="headline"><span>Positioning That</span><span>Holds Up Indoors</span></h1>
+<p class="subhead anim" style="--d:.28s">Estimate a moving target’s X–Y position from a few fixed anchors, and stay accurate when signals are noisy, missing or blocked.</p>
+<a class="cta anim pulse" style="--d:.4s" href="pricing.html#contact">Get Started</a></div>
+</div>
+<main class="sheet"><div class="wrap">
+
+
+<section id="problem"><span class="tag">The problem</span><h2>Indoor location works well in demos and less well in real buildings.</h2>
+<div class="two"><div class="rv dc"><p>Bluetooth and ultra-wideband can locate people, wheelchairs, infusion pumps and pallets inside a building. In practice, deployments rarely look like the lab: budgets limit how many anchors can be installed, corridors fill with people, and walls bend or block radio paths.</p><br><p>When a measurement passes through a wall, the distance it reports is longer than the real one. A model that trusts every reading will place the target in the wrong room. When an anchor drops out, many systems lose the track entirely.</p></div>
+<figure class="rv"><img loading="lazy" src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=900&q=70" alt="Hospital corridors are long, obstructed and busy — a typical setting for sparse anchor layouts" onerror="this.parentElement.style.display='none'"><figcaption>Hospital corridors are long, obstructed and busy — a typical setting for sparse anchor layouts</figcaption></figure></div>
+<div class="grid rows"><div class="card rv"><h3>Limited anchors</h3><p>Fewer reference points means less redundancy. One bad reading has a larger effect on the position estimate.</p></div><div class="card rv"><h3>Noisy signals</h3><p>Range and RSSI values fluctuate with body position, furniture and interference, even when the target is still.</p></div><div class="card rv"><h3>Non-line-of-sight bias</h3><p>Obstructed paths add a consistent positive error to the measured range, which silently pulls the estimate off course.</p></div><div class="card rv"><h3>Intermittent data loss</h3><p>Packets drop and anchors briefly disappear. The system has to continue sensibly instead of resetting.</p></div></div></section>
+
+<section><span class="tag">What we are solving</span><h2>Lowest practical error on unseen data, with limited and unreliable anchors.</h2>
+<div class="lead rv"><p>Our solution estimates X–Y position from range and/or signal-strength measurements, operates with a reduced number of reference points, reduces the influence of probable non-line-of-sight readings, uses motion history to improve stability, and reports every position together with an uncertainty value. Accuracy is compared across different anchor densities and noise levels, so a facility can see what it gains from each additional anchor before buying it.</p></div></section>
+
+<section><span class="tag">How it works</span><h2>From raw measurements to a confident position.</h2>
+<div class="grid steps"><div class="card rv"><h3>Ingest</h3><p>Timestamped range/RSSI from whichever anchors are reachable, plus known anchor coordinates.</p></div><div class="card rv"><h3>Qualify</h3><p>Each reading is scored for likely obstruction or bias, using residuals against neighbouring anchors and recent motion.</p></div><div class="card rv"><h3>Estimate</h3><p>A learned model combines trusted readings with temporal filtering to produce an X–Y position.</p></div><div class="card rv"><h3>Report</h3><p>The position is returned with confidence, the anchors that influenced it, and a plain-language reason.</p></div></div></section>
+
+<section><span class="tag">Capabilities</span><h2>Seven additions built on top of the core challenge.</h2>
+<div class="grid rows num">
+<div class="card rv"><span class="n">01</span><h3>AI Anchor Placement Optimizer<span class="badge">High impact</span></h3><p>Recommends the best locations for fixed anchors to maximize coverage and reduce positioning error. Simulate different placements and compare the results before installation.</p></div>
+<div class="card rv"><span class="n">02</span><h3>Obstacle-Aware Position Recovery</h3><p>Detects when walls or obstructions make measurements unreliable, then uses alternative anchors and movement history to recover the location.</p></div>
+<div class="card rv"><span class="n">03</span><h3>Crowd-Aware Tracking</h3><p>Simulates crowded corridors where signal quality deteriorates, identifies crowded zones and shows where tracking accuracy may degrade.</p></div>
+<div class="card rv"><span class="n">04</span><h3>Predictive Positioning</h3><p>Estimates where a target is likely to move next, helping maintain a stable track during brief signal interruptions.</p></div>
+<div class="card rv"><span class="n">05</span><h3>Self-Learning Error Map<span class="badge">High impact</span></h3><p>Records where the system repeatedly makes errors, learns location-specific corrections, then validates them on separate trajectories.</p></div>
+<div class="card rv"><span class="n">06</span><h3>Emergency Tracking Mode</h3><p>Simulates an emergency in a hospital or warehouse, prioritizes reliable tracking of selected assets and flags areas where estimates become uncertain.</p></div>
+<div class="card rv"><span class="n">07</span><h3>Automatic Stress Testing</h3><p>Generates thousands of simulated combinations of noise, missing anchors and obstructions to find the conditions under which the algorithm breaks.</p></div></div></section>
+
+<section><span class="tag">Where it is useful</span><h2>Places where a few metres matter.</h2>
+<div class="grid"><div class="rv"><figure class="rv"><img loading="lazy" src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=70" alt="Warehouses: locating pallets and forklifts across long aisles" onerror="this.parentElement.style.display='none'"><figcaption>Warehouses: locating pallets and forklifts across long aisles</figcaption></figure><p>Locate equipment and staff across long racked aisles where metal shelving distorts signals.</p></div>
+<div class="rv"><figure class="rv"><img loading="lazy" src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=70" alt="Offices and public buildings: wayfinding and space utilisation" onerror="this.parentElement.style.display='none'"><figcaption>Offices and public buildings: wayfinding and space utilisation</figcaption></figure><p>Support wayfinding and space planning in offices, campuses and public buildings.</p></div>
+<div class="rv"><figure class="rv"><img loading="lazy" src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=800&q=70" alt="Hospitals: assets, assistive devices and patients" onerror="this.parentElement.style.display='none'"><figcaption>Hospitals: assets, assistive devices and patients</figcaption></figure><p>Find wheelchairs, pumps and monitors quickly, and guide visitors who need assistance.</p></div></div></section>
+
+<section class="bandsec"><div class="band"><figure class="rv"><img loading="lazy" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&q=70" alt="Gateways and network hardware" onerror="this.parentElement.style.display='none'"><figcaption>Gateways and network hardware</figcaption></figure><figure class="rv"><img loading="lazy" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=70" alt="Error maps and analytics" onerror="this.parentElement.style.display='none'"><figcaption>Error maps and analytics</figcaption></figure><figure class="rv"><img loading="lazy" src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=900&q=70" alt="Site teams and pilots" onerror="this.parentElement.style.display='none'"><figcaption>Site teams and pilots</figcaption></figure></div></section>
+
+<section><span class="tag">How we validate</span><h2>Built to be judged on hidden data, not on a favourable test set.</h2>
+<div class="panel flat rv"><ul class="tick"><li>Synthetic venues with known anchor coordinates, simulated trajectories, controlled noise, packet loss and non-line-of-sight bias.</li><li>Evaluation on different paths, noise levels and obstruction patterns from those used in training.</li><li>Comparison across infrastructure densities, with the baseline and our method reported side by side.</li><li>Stress-test reports that state the assumptions and limits of the method clearly.</li></ul></div>
+<a class="btn" href="console.html">Explore the console</a><a class="btn alt" href="business.html">See the business case</a><a class="btn alt" href="security.html">How we protect data</a></section>
+</div></main>
+<footer class="foot"><nav><a href="index.html">Home</a><a href="business.html">Business</a><a href="pricing.html">Plans</a><a href="security.html">Security</a><a href="console.html">Console</a><a href="pricing.html#contact">Contact</a></nav><img src="assets/logo.png" alt="Traceline" class="flogo"><div class="wm">trace<i>line</i></div>AI indoor positioning for sparse infrastructure · <a class="inl" href="mailto:nayanthakare4321@gmail.com">nayanthakare4321@gmail.com</a></footer>
+<script src="main.js"></script></body></html>

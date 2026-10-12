@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Plans and contact — Traceline</title>
+<meta name="description" content="AI-based indoor positioning that stays accurate with few anchors, noisy signals and obstructed paths.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://db.onlinewebfonts.com/c/8cb707a9b8a73f8a7403336b861c3074?family=BubbledotICG-FinePos" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="styles.css"><link rel="icon" type="image/png" href="assets/favicon.png"><meta name="theme-color" content="#000000"></head>
+<body>
+<div class="bg"><video class="bg-video" autoplay muted loop playsinline><source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_105406_16f4600d-7a92-4292-b96e-b19156c7830a.mp4" type="video/mp4"></video></div>
+<div id="scrim"></div><div id="veil" class="go"><img src="assets/logo.png" alt="" class="vlogo"></div>
+
+<header class="header"><a class="brand" href="index.html" aria-label="Traceline home"><span class="logo"><img src="assets/logo.png" alt="" width="52" height="52"></span><span class="brand-name">trace<i>line</i></span></a>
+<nav class="nav-pill" aria-label="Primary"><a class="" href="index.html">Home</a><a class="" href="business.html">Business</a><a class=" active" href="pricing.html">Plans</a><a class="" href="security.html">Security</a><a class="" href="console.html">Console</a><a class="nc" href="pricing.html#contact">Contact</a></nav>
+<button class="burger" type="button" aria-expanded="false" aria-controls="mmenu" aria-label="Open menu"><span></span><span></span><span></span></button></header>
+<div class="overlay" hidden></div>
+<div class="mmenu" id="mmenu" hidden><a class="ml" href="index.html">Home</a><a class="ml" href="business.html">Business</a><a class="ml active" href="pricing.html">Plans</a><a class="ml" href="security.html">Security</a><a class="ml" href="console.html">Console</a><a class="sign" href="pricing.html#contact">Contact</a></div>
+<div class="page is-sub">
+<div class="hero">
+<h1 class="headline"><span>Plans</span><span>& Contact</span></h1>
+<p class="subhead anim" style="--d:.28s">Pricing below is indicative for planning. We confirm a quote after understanding your floor plan, anchor count and tracked assets.</p>
+<a class="cta anim pulse" style="--d:.4s" href="#contact">Send an enquiry</a></div>
+</div>
+<main class="sheet"><div class="wrap">
+
+<section style="padding-top:0"><div class="grid">
+<div class="card rv"><h3>Pilot</h3><div class="price">₹0 <small>for evaluation</small></div><ul class="tick"><li>One zone, up to 5 anchors</li><li>Simulation and stress-test report</li><li>Anchor placement recommendation</li><li>Support by email</li></ul><a class="btn alt" href="#contact">Request a pilot</a></div>
+<div class="card rv" style="border-color:var(--acc)"><h3>Facility<span class="badge">Most chosen</span></h3><div class="price">Custom <small>per site / year</small></div><ul class="tick"><li>Full floor coverage</li><li>Obstacle-aware recovery and predictive tracking</li><li>Self-learning error map</li><li>Crowd-aware zones and dashboard</li><li>Business-hours support</li></ul><a class="btn" href="#contact">Get a quote</a></div>
+<div class="card rv"><h3>Enterprise</h3><div class="price">Custom <small>multi-site</small></div><ul class="tick"><li>Everything in Facility</li><li>Emergency tracking mode</li><li>On-premise or private cloud</li><li>SSO, audit export, custom retention</li><li>Dedicated support contact</li></ul><a class="btn alt" href="#contact">Talk to us</a></div></div></section>
+
+<section id="contact"><span class="tag">Enquiry</span><h2>Talk to the team.</h2>
+<div class="two"><div class="panel rv"><form action="https://formsubmit.co/nayanthakare4321@gmail.com" method="POST">
+<input type="hidden" name="_subject" value="New Traceline website enquiry"><input type="hidden" name="_captcha" value="false"><input type="hidden" name="_next" value="https://example.com/pricing.html"><input type="text" name="_honey" style="display:none">
+<label>Name</label><input name="name" required><label>Email</label><input type="email" name="email" required><label>Organisation</label><input name="organisation"><label>Interested in</label><select name="interest"><option>Pilot</option><option>Facility plan</option><option>Enterprise plan</option><option>Partnership</option><option>Something else</option></select><label>Message</label><textarea name="message" rows="5" required></textarea><button class="btn" style="margin:0">Send enquiry</button></form></div>
+<div class="rv"><figure class="rv"><img loading="lazy" src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=900&q=70" alt="We reply to every enquiry by email" onerror="this.parentElement.style.display='none'"><figcaption>We reply to every enquiry by email</figcaption></figure><p style="margin-top:16px">Prefer email? Write to <a href="mailto:nayanthakare4321@gmail.com" class="inl">nayanthakare4321@gmail.com</a>. Tell us the type of building, approximate area and what you want to track.</p></div></div></section>
+
+<section><span class="tag">FAQ</span><h2>Common questions</h2><div class="rv">
+<details><summary>How many anchors do I need?</summary><p>It depends on floor area and layout. The placement optimizer simulates options and shows the expected error for each, so you can choose the smallest count that meets your accuracy target.</p></details>
+<details><summary>Which anchor hardware is supported?</summary><p>The method works from range or signal-strength measurements, so it is designed to work with common Bluetooth and UWB anchors through measurement adapters.</p></details>
+<details><summary>What accuracy can I expect?</summary><p>Accuracy varies with anchor density, noise and obstructions. We report results on hidden test data and recommend a surveyed pilot to confirm it in your building.</p></details>
+<details><summary>What happens when a wall blocks the signal?</summary><p>Likely obstructed readings are down-weighted, alternative anchors are used, and motion history helps hold the track. The reported uncertainty increases so you can see it.</p></details>
+<details><summary>Can it run without internet?</summary><p>Yes. Inference can run on a local gateway inside your network.</p></details>
+<details><summary>Is personal data stored?</summary><p>We track devices through pseudonymous identifiers and keep only what is needed. See the <a href="security.html" class="inl">Security</a> page for details.</p></details>
+<details><summary>How long does a pilot take?</summary><p>Typically a few weeks: survey, anchor setup, calibration walk and a measured comparison.</p></details></div></section>
+</div></main>
+<footer class="foot"><nav><a href="index.html">Home</a><a href="business.html">Business</a><a href="pricing.html">Plans</a><a href="security.html">Security</a><a href="console.html">Console</a><a href="pricing.html#contact">Contact</a></nav><img src="assets/logo.png" alt="Traceline" class="flogo"><div class="wm">trace<i>line</i></div>AI indoor positioning for sparse infrastructure · <a class="inl" href="mailto:nayanthakare4321@gmail.com">nayanthakare4321@gmail.com</a></footer>
+<script src="main.js"></script></body></html>

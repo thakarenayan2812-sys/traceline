@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Security and privacy — Traceline</title>
+<meta name="description" content="AI-based indoor positioning that stays accurate with few anchors, noisy signals and obstructed paths.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://db.onlinewebfonts.com/c/8cb707a9b8a73f8a7403336b861c3074?family=BubbledotICG-FinePos" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="styles.css"><link rel="icon" type="image/png" href="assets/favicon.png"><meta name="theme-color" content="#000000"></head>
+<body>
+<div class="bg"><video class="bg-video" autoplay muted loop playsinline><source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_105406_16f4600d-7a92-4292-b96e-b19156c7830a.mp4" type="video/mp4"></video></div>
+<div id="scrim"></div><div id="veil" class="go"><img src="assets/logo.png" alt="" class="vlogo"></div>
+
+<header class="header"><a class="brand" href="index.html" aria-label="Traceline home"><span class="logo"><img src="assets/logo.png" alt="" width="52" height="52"></span><span class="brand-name">trace<i>line</i></span></a>
+<nav class="nav-pill" aria-label="Primary"><a class="" href="index.html">Home</a><a class="" href="business.html">Business</a><a class="" href="pricing.html">Plans</a><a class=" active" href="security.html">Security</a><a class="" href="console.html">Console</a><a class="nc" href="pricing.html#contact">Contact</a></nav>
+<button class="burger" type="button" aria-expanded="false" aria-controls="mmenu" aria-label="Open menu"><span></span><span></span><span></span></button></header>
+<div class="overlay" hidden></div>
+<div class="mmenu" id="mmenu" hidden><a class="ml" href="index.html">Home</a><a class="ml" href="business.html">Business</a><a class="ml" href="pricing.html">Plans</a><a class="ml active" href="security.html">Security</a><a class="ml" href="console.html">Console</a><a class="sign" href="pricing.html#contact">Contact</a></div>
+<div class="page is-sub">
+<div class="hero">
+<h1 class="headline"><span>Security</span><span>& Privacy</span></h1>
+<p class="subhead anim" style="--d:.28s">This page describes the architecture and controls we build to, and the reasons for each. No system is risk-free; our aim is to reduce risk by design and be clear about what we do.</p>
+<a class="cta anim pulse" style="--d:.4s" href="pricing.html#contact">Ask a question</a></div>
+</div>
+<main class="sheet"><div class="wrap">
+
+
+<section style="padding-top:0"><div class="two"><div class="rv"><h2>Principles</h2><ul class="tick"><li><b>Minimise:</b> collect only anchor measurements and a device identifier. No names, no phone contents.</li><li><b>Process locally:</b> estimation can run on a gateway inside your network.</li><li><b>Protect in transit and at rest:</b> encryption everywhere data moves or sits.</li><li><b>Limit access:</b> each person sees only what their role requires.</li><li><b>Keep records:</b> every access is logged.</li></ul></div>
+<figure class="rv"><img loading="lazy" src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=900&q=70" alt="Security is part of the architecture, not an add-on" onerror="this.parentElement.style.display='none'"><figcaption>Security is part of the architecture, not an add-on</figcaption></figure></div></section>
+
+<section><span class="tag">Technology</span><h2>What is used, and why.</h2>
+<div class="grid plain">
+<div class="card rv"><i class="fa-solid fa-lock ic"></i><h3>Encryption in transit</h3><p>TLS 1.3 between devices, gateways, servers and dashboards, with certificate validation. This prevents interception or modification of measurements on the network.</p></div>
+<div class="card rv"><i class="fa-solid fa-database ic"></i><h3>Encryption at rest</h3><p>AES-256 for databases and backups, with keys held in a managed key store and rotated. A stolen disk does not expose location history.</p></div>
+<div class="card rv"><i class="fa-solid fa-user-secret ic"></i><h3>Pseudonymous identifiers</h3><p>Devices are tracked by rotating random IDs. The table linking an ID to a person or asset is stored separately with stricter access, so location records alone do not identify anyone.</p></div>
+<div class="card rv"><i class="fa-solid fa-microchip ic"></i><h3>On-device and edge processing</h3><p>Raw measurements can be processed on a local gateway, and only the resulting position leaves the building if the customer chooses cloud analytics.</p></div>
+<div class="card rv"><i class="fa-solid fa-users-gear ic"></i><h3>Role-based access control</h3><p>Separate roles for administrators, operators and viewers, with multi-factor authentication for administrators and optional single sign-on.</p></div>
+<div class="card rv"><i class="fa-solid fa-clipboard-list ic"></i><h3>Audit logging</h3><p>Who viewed or exported which location data, and when. Logs are append-only and exportable to your own monitoring.</p></div>
+<div class="card rv"><i class="fa-solid fa-certificate ic"></i><h3>Signed anchors and gateways</h3><p>Anchors and gateways authenticate with device certificates, which helps prevent a rogue device from injecting false measurements. Our sensor-trust checks add a second layer by flagging implausible readings.</p></div>
+<div class="card rv"><i class="fa-solid fa-trash-can ic"></i><h3>Retention and deletion</h3><p>Configurable retention, such as live-only or a fixed number of days, with automated deletion and deletion on request.</p></div>
+<div class="card rv"><i class="fa-solid fa-code ic"></i><h3>Secure development</h3><p>Dependency scanning, code review, secrets kept out of source control, least-privilege service accounts and regular penetration testing before production releases.</p></div></div></section>
+
+<section><span class="tag">Data flow</span><h2>What travels where.</h2>
+<table class="rv"><tr><th>Stage</th><th>Data</th><th>Protection</th></tr><tr><td>Anchor → gateway</td><td>Range/RSSI, anchor ID, timestamp</td><td>Device certificate, encrypted link</td></tr><tr><td>Gateway (edge)</td><td>Position estimate with uncertainty</td><td>Processed in memory; optional local-only mode</td></tr><tr><td>Gateway → server</td><td>Pseudonymous ID, X–Y, confidence</td><td>TLS 1.3, token authentication</td></tr><tr><td>Storage</td><td>Position history</td><td>AES-256, retention limits, access logs</td></tr><tr><td>Dashboard</td><td>Maps and alerts</td><td>RBAC, MFA, session timeout</td></tr></table></section>
+
+<section class="bandsec"><div class="band"><figure class="rv"><img loading="lazy" src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=900&q=70" alt="Encrypted connections" onerror="this.parentElement.style.display='none'"><figcaption>Encrypted connections</figcaption></figure><figure class="rv"><img loading="lazy" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=900&q=70" alt="Network-wide monitoring" onerror="this.parentElement.style.display='none'"><figcaption>Network-wide monitoring</figcaption></figure><figure class="rv"><img loading="lazy" src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=900&q=70" alt="Access control and audit" onerror="this.parentElement.style.display='none'"><figcaption>Access control and audit</figcaption></figure></div></section>
+
+<section><span class="tag">Privacy and compliance</span><h2>Respecting the people being located.</h2>
+<div class="panel flat rv"><ul class="tick"><li>Designed to align with India's Digital Personal Data Protection Act, 2023: purpose limitation, consent where people carry tracked phones, and data-principal rights such as access and erasure.</li><li>For staff and patients, tracking is opt-in or limited to assets, and facilities can define zones where tracking is off.</li><li>Healthcare deployments can add stricter retention and role separation. Formal certifications such as ISO 27001 are a roadmap item, not a current claim.</li><li>The system is built to work with hidden-test-style validation, so accuracy claims are measured, not asserted.</li></ul></div>
+<h3 style="margin-top:34px">What we cannot promise</h3><p>No software is completely immune to attack. We reduce exposure through the controls above, test them regularly, and will notify customers promptly if an incident affects their data.</p>
+<a class="btn" href="pricing.html#contact">Ask a security question</a></section>
+</div></main>
+<footer class="foot"><nav><a href="index.html">Home</a><a href="business.html">Business</a><a href="pricing.html">Plans</a><a href="security.html">Security</a><a href="console.html">Console</a><a href="pricing.html#contact">Contact</a></nav><img src="assets/logo.png" alt="Traceline" class="flogo"><div class="wm">trace<i>line</i></div>AI indoor positioning for sparse infrastructure · <a class="inl" href="mailto:nayanthakare4321@gmail.com">nayanthakare4321@gmail.com</a></footer>
+<script src="main.js"></script></body></html>
